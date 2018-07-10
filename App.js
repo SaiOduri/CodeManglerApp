@@ -4,12 +4,17 @@ import {
     createStackNavigator,
   } from 'react-navigation';
 import HomeScreen from './HomeScreen.js';
+import Files from './Files.js';
 
-const RootStack = createStackNavigator({
-  Home: {
-    screen: HomeScreen
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Files: Files
   },
-});
+  {
+    initialRouteName: 'Home',
+  }
+);
 
 export default class App extends React.Component {
 

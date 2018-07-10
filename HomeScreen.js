@@ -1,35 +1,39 @@
 import React from 'react';
 import {
-    createStackNavigator,
+    StackNavigator,
   } from 'react-navigation';
 import { Alert, Button, StyleSheet, Text, View } from 'react-native';
 
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
-      title: 'Welcome',
+        title: 'Log Out',
+        header: null
     };
+
 
     onLoginPressed(){
         alert("Login Successful")
         }
     onRegisterPressed(){
-        alert("Registration Begin")
+        alert("User Signed up!")
     }
-    
+
     render() {
       const { navigate } = this.props.navigation;
       return (
         <View style={styles.container}>
         <Text style={styles.title}>Code Mangler</Text>
         <View style={styles.btnContainer}>
-          <Button
-            onPress={this.onLoginPressed}
-            title="Login"/>
-            <Button
-              onPress={this.onRegisterPressed}
-              title="Register"/>
-            </View>
+        <Button
+        onPress={() =>
+            navigate('Files', { name: 'Files' })
+          }
+        title="Login"/>
+        <Button
+            onPress={this.onRegisterPressed}
+            title="Register"/>
+        </View>
       </View>
       );
     }
@@ -51,8 +55,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default createStackNavigator({
-    Home: {
-        screen: HomeScreen
-    },
-});
+export default HomeScreen
