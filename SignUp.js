@@ -16,14 +16,14 @@ class SignUp extends React.Component {
         navigate('Files', { name: 'Files' });
     }
     function onBackPressed(){
-        () => goBack()
+        goBack(null)
      }
-     const { goBack } = this.props.navigation;
+     const { navigate, goBack } = this.props.navigation;
       return (
         <View style = {styles.container}>
           <View style= {styles.topBar}>
             <TouchableOpacity
-              onPress={() => goBack(null)}
+              onPress={() => onBackPressed()}
               style = {(styles.exit)}
               >
             <Image style={styles.exit} source={require('./assets/exit.png')}/>
