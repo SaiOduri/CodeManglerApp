@@ -11,15 +11,16 @@ class HomeScreen extends React.Component {
         header: null
     };
 
-    onLoginPressed(){
-        navigate('Files', { name: 'Files' })
-        alert("Login Successful")
-        }
+    
     onRegisterPressed(){
-        alert("User Signed up!")
+        alert("User Signed up!");
     }
 
     render() {
+    
+    function onLogin(){
+        navigate('Files', { name: 'Files' });
+    }
       const { navigate } = this.props.navigation;
       return (
         <View style={styles.container}>
@@ -34,7 +35,7 @@ class HomeScreen extends React.Component {
 
         <View style={styles.btnContainer}>
         <Button
-            onPress={this.onRegisterPressed}
+            onPress={() => onLogin()}
             title="Login"/>
         <Button
             onPress={this.onRegisterPressed}
