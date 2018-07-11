@@ -14,7 +14,7 @@ class Mangle extends React.Component {
         function Press(){
             navigate('Results', { name: 'Results' });
         }
-    
+
         const { navigate } = this.props.navigation;
       return (
         <View style={styles.container}>
@@ -36,8 +36,7 @@ class Mangle extends React.Component {
         flex: 1,
         backgroundColor: '#ffffff',
         justifyContent: 'center',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
+        flexDirection: 'column',
     },
     title: {
         color: '#a4c3b2',
