@@ -11,7 +11,6 @@ class HomeScreen extends React.Component {
         header: null
     };
 
-
     onLoginPressed(){
         navigate('Files', { name: 'Files' })
         alert("Login Successful")
