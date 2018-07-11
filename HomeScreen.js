@@ -11,7 +11,6 @@ class HomeScreen extends React.Component {
         header: null
     };
 
-
     onLoginPressed(){
         alert("Login Successful")
         }

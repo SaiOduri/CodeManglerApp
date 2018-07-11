@@ -5,11 +5,15 @@ import {
   } from 'react-navigation';
 import HomeScreen from './HomeScreen.js';
 import Files from './Files.js';
+import Mangle from './Mangle.js';
+import Results from './Results.js';
 
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Files: Files
+    Files: Files,
+    Mangle: Mangle,
+    Results: Results,
   },
   {
     initialRouteName: 'Home',

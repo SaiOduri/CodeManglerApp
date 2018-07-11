@@ -7,23 +7,26 @@ import { Alert, Button, StyleSheet, FlatList, Text, View } from 'react-native';
 
 class Files extends React.Component {
     static navigationOptions = {
-      title: 'NavBar',
+      title: 'Files',
     };
 
     onLoginPressed(){
     alert("Login Successful");
     }
-    onRegisterPressed(){
-        alert("User Signed up!");
-    }
 
     render() {
+
+      function Press(){
+        navigate('Mangle', { name: 'Mangle' });
+      }
+
+
       const { navigate } = this.props.navigation;
       return (
         <View style={styles.container}>
         <FlatList
           data={[
-            {key: 'File 1'},
+            {key: 'File 1', name: 'File 1'},
             {key: 'File 2'},
             {key: 'File 3'},
             {key: 'File 4'},
@@ -36,7 +39,7 @@ class Files extends React.Component {
             {key: 'File 11'},
             {key: 'File 12'}
           ]}
-          renderItem={({item}) =><Text style={styles.title} onPress={() => alert(item.key)}>{item.key}</Text>}
+          renderItem={({item}) =><Text style={styles.title} onPress={() => Press()}>{item.key}</Text>}
         />
       </View>
       );
@@ -56,11 +59,8 @@ const styles = StyleSheet.create({
         color: '#a4c3b2',
         fontSize: 30,
         borderWidth: 1,
-        backgroundColor: '#FDD7E4',
         textAlign: 'left',
-    },
-    btnContainer: {
-        margin: 20,
+        padding: 10,
     },
 });
 
