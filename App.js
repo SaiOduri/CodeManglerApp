@@ -10,10 +10,17 @@ import SignUp from './SignUp.js';
 const RootStack = createStackNavigator(
   {
     Login: Login,
-    SignUp: SignUp,
     Files: Files,
     Mangle: Mangle,
     Results: Results,
+    SignUp: {
+      screen: SignUp,
+      navigationOptions: {
+        title: null,
+        headerStyle: { backgroundColor: '#FEFEFE' },
+        headerTintColor: '#fff'
+      }
+    }
   },
   {
     initialRouteName: 'Login',

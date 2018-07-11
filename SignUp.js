@@ -1,13 +1,13 @@
 import React from 'react';
 //import { setCustomText } from 'react-native-global-props';
 import { StackNavigator, } from 'react-navigation';
-import { Button, Image, StyleSheet, Text, TextInput, TouchableHighlight,TouchableOpacity, View } from 'react-native';
+import { Button, Alert, Icon, Image, StyleSheet, Text, TextInput, TouchableHighlight,TouchableOpacity, View } from 'react-native';
 
 
 class SignUp extends React.Component {
     static navigationOptions = {
         title: 'Sign Up',
-        header: null
+        header: null,
     };
 
     render() {
@@ -16,14 +16,14 @@ class SignUp extends React.Component {
         navigate('Files', { name: 'Files' });
     }
     function onBackPressed(){
-         //this.props.navigation.goBack(null);
+        () => goBack()
      }
-      const { navigate } = this.props.navigation;
+     const { goBack } = this.props.navigation;
       return (
         <View style = {styles.container}>
           <View style= {styles.topBar}>
             <TouchableOpacity
-              onPress={() => onBackPressed()}
+              onPress={() => goBack(null)}
               style = {(styles.exit)}
               >
             <Image style={styles.exit} source={require('./assets/exit.png')}/>
