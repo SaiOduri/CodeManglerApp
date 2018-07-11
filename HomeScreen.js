@@ -2,7 +2,7 @@ import React from 'react';
 import {
     StackNavigator,
   } from 'react-navigation';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
 
 
 class HomeScreen extends React.Component {
@@ -13,6 +13,7 @@ class HomeScreen extends React.Component {
 
 
     onLoginPressed(){
+        navigate('Files', { name: 'Files' })
         alert("Login Successful")
         }
     onRegisterPressed(){
@@ -23,13 +24,19 @@ class HomeScreen extends React.Component {
       const { navigate } = this.props.navigation;
       return (
         <View style={styles.container}>
-        <Text style={styles.title}>Code Mangler</Text>
+        <View style={styles.titleContainer}>
+        <Image style={(styles.logo)} source={require('./assets/logo.png')} />
+        <Text style={styles.title}>Code{'\n'}Mangler</Text>
+
+        </View>
+        <TextInput
+          placeholder="Username"
+          onChangeText={(text) => this.setState({text})}/>
+
         <View style={styles.btnContainer}>
         <Button
-        onPress={() =>
-            navigate('Files', { name: 'Files' })
-          }
-        title="Login"/>
+            onPress={this.onRegisterPressed}
+            title="Login"/>
         <Button
             onPress={this.onRegisterPressed}
             title="Register"/>
@@ -46,9 +53,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    logo:{
+      width: 73,
+      height: 73,
+    },
+    titleContainer: {
+      flex:1,
+      flexDirection:'row',
+      marginTop:96,
+    },
     title: {
-        color: '#a4c3b2',
-        fontSize: 48,
+      flex: 1,
+      color: '#002D67',
+      fontSize: 43,
+      fontWeight: 'bold',
+    },
+    inputContainer: {
+      padding: 10,
+      fontSize: 16,
     },
     btnContainer: {
         margin: 20,
