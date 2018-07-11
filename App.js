@@ -1,22 +1,22 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
-import {
-    createStackNavigator,
-  } from 'react-navigation';
-import HomeScreen from './HomeScreen.js';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import {createStackNavigator,} from 'react-navigation';
+import Login from './Login.js';
 import Files from './Files.js';
 import Mangle from './Mangle.js';
 import Results from './Results.js';
+import SignUp from './SignUp.js';
 
 const RootStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Login: Login,
+    SignUp: SignUp,
     Files: Files,
     Mangle: Mangle,
     Results: Results,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Login',
   }
 );
 
