@@ -8,7 +8,7 @@ class Search extends Component {
     this.state = {
       search: ''
     };
-  }
+}
 
   updateSearch(event) {
     this.setState({
