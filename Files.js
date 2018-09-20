@@ -13,18 +13,18 @@ class Files extends React.Component {
     super();
     this.state = {
       files: [
-        {key: 'Mangler.py'},
-        {key: 'Handler.py'},
-        {key: 'exe1.py'},
-        {key: 'testflight.py'},
-        {key: 'tree.py'},
-        {key: 'graphdb.py'},
-        {key: 'awesome.py'},
-        {key: 'assignment0.py'},
-        {key: 'codemangler.py'},
-        {key: 'LeftRightOccurences.py'},
-        {key: 'Tax.py'},
-        {key: 'CardShuffle.py'}
+        {key: 'Mangler.py', difficulty: 'Hard'},
+        {key: 'Handler.py', difficulty: 'Easy'},
+        {key: 'exe1.py', difficulty: 'Moderate'},
+        {key: 'testflight.py', difficulty: 'Hard'},
+        {key: 'tree.py', difficulty: 'Hard'},
+        {key: 'graphdb.py', difficulty: 'Hard'},
+        {key: 'awesome.py', difficulty: 'Hard'},
+        {key: 'assignment0.py', difficulty: 'Easy'},
+        {key: 'codemangler.py', difficulty: 'Moderate'},
+        {key: 'LeftRightOccurences.py', difficulty: 'Moderate'},
+        {key: 'Tax.py', difficulty: 'Hard'},
+        {key: 'CardShuffle.py', difficulty: 'Easy'}
       ],
       filteredfiles: null,
     };
@@ -65,9 +65,12 @@ class Files extends React.Component {
               style={styles.separater}
               renderItem={({item}) =>
               <View style={styles.card}>
-                <Text style={styles.title} 
-                  onPress={() => Press()}>{item.key}
-                </Text>
+                <View style={styles.row}>
+                  <Text style={styles.title} 
+                    onPress={() => Press()}>{item.key}
+                  </Text>
+                  <Text style={styles.difficulty}>{item.difficulty}</Text>
+                </View>
                 <View style={styles.rectangle}/> 
               </View>}
           />
@@ -89,14 +92,25 @@ const styles = StyleSheet.create({
     card:{
 
     },
+    row:{
+      display: 'flex',
+      flexDirection: 'row',
+      paddingTop: 47,
+      paddingBottom: 25,
+      paddingLeft: 16,
+      justifyContent: 'space-between',
+    },
+    difficulty:{
+      color: '#939393',
+      fontFamily: 'Arial',
+      fontSize: 16,
+      marginRight: 16,
+    },
     title: {
         color: '#002D67',
         fontFamily: 'Arial',
         fontSize: 16,
         textAlign: 'left',
-        paddingTop: 47,
-        paddingBottom: 25,
-        paddingLeft: 16,
     },
     separater:{
       marginTop: -4.5,
