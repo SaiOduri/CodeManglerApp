@@ -3,27 +3,28 @@ import {
     StackNavigator,
   } from 'react-navigation';
 import Search from './Search.js';
-import { Alert, Button, StyleSheet, FlatList, Text, View } from 'react-native';
+import { Alert, Button, StyleSheet, FlatList, Text, View, Dimensions } from 'react-native';
 
 
+const {height, width} = Dimensions.get('window')
 
 class Files extends React.Component {
   constructor () {
     super();
     this.state = {
       files: [
-        {key: 'File 1', name: 'File 1'},
-        {key: 'File 2'},
-        {key: 'File 3'},
-        {key: 'File 4'},
-        {key: 'File 5'},
-        {key: 'File 6'},
-        {key: 'File 7'},
-        {key: 'File 8'},
-        {key: 'File 9'},
-        {key: 'File 10'},
-        {key: 'File 11'},
-        {key: 'File 12'}
+        {key: 'Mangler.py'},
+        {key: 'Handler.py'},
+        {key: 'exe1.py'},
+        {key: 'testflight.py'},
+        {key: 'tree.py'},
+        {key: 'graphdb.py'},
+        {key: 'awesome.py'},
+        {key: 'assignment0.py'},
+        {key: 'codemangler.py'},
+        {key: 'LeftRightOccurences.py'},
+        {key: 'Tax.py'},
+        {key: 'CardShuffle.py'}
       ],
       filteredfiles: null,
     };
@@ -54,17 +55,21 @@ class Files extends React.Component {
 
       const { navigate } = this.props.navigation;
       return (
-        <View style={styles.container} >
+        <View style={styles.container}>
           <Search
             filterfiles={this.filterfiles}
             files={this.state.files}
           />
           <FlatList
               data={file}
+              style={styles.separater}
               renderItem={({item}) =>
+              <View style={styles.card}>
                 <Text style={styles.title} 
                   onPress={() => Press()}>{item.key}
-                </Text>}
+                </Text>
+                <View style={styles.rectangle}/> 
+              </View>}
           />
         </View>
       );
@@ -75,17 +80,32 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#ffffff',
+        paddingTop: 20,
+        backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         flexDirection: 'column',
         flexWrap: 'wrap',
     },
+    card:{
+
+    },
     title: {
-        color: '#a4c3b2',
-        fontSize: 30,
-        borderWidth: 1,
+        color: '#002D67',
+        fontFamily: 'Arial',
+        fontSize: 16,
         textAlign: 'left',
-        padding: 10,
+        paddingTop: 47,
+        paddingBottom: 25,
+        paddingLeft: 16,
+    },
+    separater:{
+      marginTop: -4.5,
+    },
+    rectangle:{
+      width: width - 16,
+      backgroundColor: '#F5F5F5',
+      height: 1,
+      marginLeft: 16,
     },
 });
 
